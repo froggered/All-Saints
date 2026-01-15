@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Saints of Lincolnshire | Orthodox Christian Parish</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1a1f3c;
+            --charcoal: #2d2d2d;
+            --off-white: #f8f6f3;
+            --gold: #c9a227;
+            --gold-light: #d4af37;
+            --burgundy: #722f37;
+            --slate: #64748b;
+            --ivory: #fffef9;
+            --live-red: #dc2626;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--off-white);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--navy);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-logo .cross {
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.6rem 1.25rem;
+            border-radius: 4px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(201, 162, 39, 0.1);
+        }
+
+        .btn-live {
+            background: var(--live-red);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            animation: live-glow 2s ease-in-out infinite;
+        }
+
+        .btn-live::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.9); }
+        }
+
+        @keyframes live-glow {
+            0%, 100% { box-shadow: 0 0 5px rgba(220, 38, 38, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.8); }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            opacity: 0.4;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 31, 60, 0.85) 0%, rgba(45, 45, 45, 0.9) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-icon {
+            width: 120px;
+            height: 160px;
+            margin: 0 auto 2rem;
+            position: relative;
+        }
+
+        /* Animated Orthodox Cross */
+        .orthodox-cross-svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 30px rgba(201, 162, 39, 0.5));
+        }
+
+        .orthodox-cross-svg .cross-line {
+            stroke: var(--gold);
+            stroke-width: 4;
+            fill: none;
+            stroke-linecap: round;
+        }
+
+        .cross-glow {
+            animation: cross-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes cross-glow {
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(201, 162, 39, 0.4)); }
+            50% { filter: drop-shadow(0 0 40px rgba(201, 162, 39, 0.8)); }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gold);
+            margin-bottom: 2rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero .btn {
+            padding: 0.875rem 2rem;
+            font-size: 0.95rem;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.5);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-family: 'Oswald', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .scroll-indicator::after {
+            content: '';
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+            animation: scroll-line 2s ease-in-out infinite;
+        }
+
+        @keyframes scroll-line {
+            0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
+            50% { opacity: 1; transform: scaleY(1); }
+        }
+
+        /* Main Content Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--slate);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 1rem auto;
+        }
+
+        /* Service Times Section */
+        .services-section {
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .service-times-card {
+            background: var(--navy);
+            border-radius: 12px;
+            padding: 2.5rem;
+            color: white;
+        }
+
+        .service-times-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .service-times-card h3 .cross {
+            color: var(--gold);
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-list li {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            align-items: center;
+        }
+
+        .service-list li:last-child {
+            border-bottom: none;
+        }
+
+        .service-day {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .service-time {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        .service-name {
+            color: var(--gold);
+            font-family: 'Oswald', sans-serif;
+            font-weight: 500;
+        }
+
+        .service-times-card .btn {
+            width: 100%;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+
+        /* Location Card */
+        .location-card {
+            background: var(--off-white);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .location-map {
+            height: 200px;
+            background: var(--slate);
+            position: relative;
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .location-details {
+            padding: 2rem;
+        }
+
+        .location-details h3 {
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .location-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .location-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            color: var(--charcoal);
+            font-size: 0.95rem;
+        }
+
+        .location-info-item .icon {
+            color: var(--gold);
+            font-size: 1.1rem;
+            width: 20px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .contact-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--navy);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .contact-links a:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        /* Events Section */
+        .events-section {
+            background: var(--off-white);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .event-card-header {
+            background: var(--navy);
+            color: white;
+            padding: 1.25rem;
+            text-align: center;
+        }
+
+        .event-month {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+        }
+
+        .event-day {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+            margin: 0.25rem 0;
+        }
+
+        .event-weekday {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .event-card-body {
+            padding: 1.5rem;
+        }
+
+        .event-card-body h4 {
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .event-time {
+            font-family: 'Oswald', sans-serif;
+            color: var(--gold);
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .event-card-body p {
+            color: var(--slate);
+            font-size: 0.9rem;
+        }
+
+        .event-card.featured .event-card-header {
+            background: var(--burgundy);
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            background: white;
+        }
+
+        .welcome-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .welcome-content h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .welcome-content p {
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .welcome-content .btn {
+            margin-top: 0.5rem;
+        }
+
+        .welcome-image {
+            position: relative;
+        }
+
+        .welcome-image-placeholder {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 100%);
+            border-radius: 12px;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-image-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 10v20M50 70v20M40 35h20M40 65h20M30 45v10M70 45v10' stroke='%23c9a227' stroke-width='1.5' fill='none' opacity='0.15'/%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .welcome-image-placeholder .cross {
+            font-size: 6rem;
+            color: var(--gold);
+            opacity: 0.3;
+        }
+
+        .welcome-quote {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            max-width: 280px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .welcome-quote blockquote {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .welcome-quote cite {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* News Section */
+        .news-section {
+            background: var(--navy);
+            color: white;
+        }
+
+        .news-section .section-header h2 {
+            color: white;
+        }
+
+        .news-section .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .news-featured {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .news-meta {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .news-featured h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .news-featured p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1.5rem;
+        }
+
+        .news-featured .btn-secondary {
+            border-color: white;
+            color: white;
+        }
+
+        .news-featured .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .news-sidebar h4 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .news-list-item {
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .news-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-list-item h5 {
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+
+        .news-list-item span {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--charcoal);
+            color: rgba(255,255,255,0.8);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand .nav-logo {
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .footer-social a:hover {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .footer-col h4 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-col p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .footer-bottom .glory {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid,
+            .welcome-grid,
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .events-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="nav-logo">
+                <span class="cross">&#9766;</span>
+                All Saints
+            </a>
+            <ul class="nav-links">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Discover</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="#" class="btn btn-live">Live</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-video-container">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-lighting-a-candle-in-the-dark-4068-large.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <!-- Animated Orthodox Cross SVG -->
+            <div class="hero-icon cross-glow">
+                <svg class="orthodox-cross-svg" viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Top bar -->
+                    <line class="cross-line" x1="30" y1="15" x2="50" y2="15"/>
+                    <!-- Main vertical -->
+                    <line class="cross-line" x1="40" y1="5" x2="40" y2="115"/>
+                    <!-- Main horizontal -->
+                    <line class="cross-line" x1="15" y1="40" x2="65" y2="40"/>
+                    <!-- Slanted bottom bar -->
+                    <line class="cross-line" x1="22" y1="90" x2="58" y2="80"/>
+                </svg>
+            </div>
+
+            <h1>All Saints of Lincolnshire</h1>
+            <p class="hero-subtitle">Orthodox Christian Parish · Antiochian Archdiocese</p>
+            <p class="hero-description">
+                A congregation devoted to mission and evangelism in the heart of Lincoln.
+                We welcome all who seek to discover the ancient faith of Orthodox Christianity.
+            </p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">Plan Your Visit</a>
+                <a href="#" class="btn btn-secondary">Watch Live</a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            Scroll
+        </div>
+    </section>
+
+    <!-- Service Times & Location -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Join Us for Worship</h2>
+                <div class="section-divider"></div>
+                <p>Experience the beauty of Orthodox Christian worship. All are welcome.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-times-card">
+                    <h3><span class="cross">&#9766;</span> Weekly Services</h3>
+                    <ul class="service-list">
+                        <li>
+                            <span class="service-day">Wednesday</span>
+                            <span class="service-time">6:00 PM</span>
+                            <span class="service-name">Vespers</span>
+                        </li>
+                        <li>
+                            <span class="service-day">Thursday</span>
+                            <span class="service-time">11:00 AM</span>
+                            <span class="service-name">Moleiben</span>
+                        </li>
+                        <li>
+                            <span class="service-day">Saturday</span>
+                            <span class="service-time">8:00 AM</span>
+                            <span class="service-name">Divine Liturgy</span>
+                        </li>
+                        <li>
+                            <span class="service-day">Saturday</span>
+                            <span class="service-time">5:00 PM</span>
+                            <span class="service-name">Vespers</span>
+                        </li>
+                        <li>
+                            <span class="service-day">Sunday</span>
+                            <span class="service-time">10:00 AM</span>
+                            <span class="service-name">Divine Liturgy</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">View Full Calendar</a>
+                </div>
+
+                <div class="location-card">
+                    <div class="location-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2404.5!2d-0.55!3d53.23!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTPCsDEzJzQ4LjAiTiAwwrAzMycwMC4wIlc!5e0!3m2!1sen!2suk!4v1600000000000!5m2!1sen!2suk" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                    <div class="location-details">
+                        <h3>Find Us</h3>
+                        <div class="location-info">
+                            <div class="location-info-item">
+                                <span class="icon">&#9906;</span>
+                                <span>Burton Road, Lincoln<br>Lincolnshire, UK</span>
+                            </div>
+                            <div class="location-info-item">
+                                <span class="icon">&#9742;</span>
+                                <span>07969 332740</span>
+                            </div>
+                            <div class="location-info-item">
+                                <span class="icon">&#9993;</span>
+                                <span>Fr.Philip@gmx.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-links">
+                            <a href="#" title="Facebook">f</a>
+                            <a href="#" title="YouTube">&#9654;</a>
+                            <a href="#" title="Twitter">&#120143;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section class="events-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Upcoming Events</h2>
+                <div class="section-divider"></div>
+                <p>Special services, feast days, and community gatherings</p>
+            </div>
+
+            <div class="events-grid">
+                <div class="event-card featured">
+                    <div class="event-card-header">
+                        <span class="event-month">January</span>
+                        <span class="event-day">19</span>
+                        <span class="event-weekday">Sunday</span>
+                    </div>
+                    <div class="event-card-body">
+                        <h4>Feast of Theophany</h4>
+                        <div class="event-time">Divine Liturgy · 10:00 AM</div>
+                        <p>Special blessing of waters following the Divine Liturgy. All are welcome to participate.</p>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-card-header">
+                        <span class="event-month">January</span>
+                        <span class="event-day">25</span>
+                        <span class="event-weekday">Saturday</span>
+                    </div>
+                    <div class="event-card-body">
+                        <h4>Catechumen Class</h4>
+                        <div class="event-time">E-Quip Session · 3:00 PM</div>
+                        <p>Weekly instruction for those exploring the Orthodox faith.</p>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-card-header">
+                        <span class="event-month">February</span>
+                        <span class="event-day">02</span>
+                        <span class="event-weekday">Sunday</span>
+                    </div>
+                    <div class="event-card-body">
+                        <h4>Presentation of Christ</h4>
+                        <div class="event-time">Divine Liturgy · 10:00 AM</div>
+                        <p>Celebration of the Meeting of our Lord in the Temple.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+        <div class="container">
+            <div class="welcome-grid">
+                <div class="welcome-content">
+                    <h2>New to Orthodoxy?</h2>
+                    <p>
+                        Orthodox Christianity is the ancient faith passed down from the Apostles,
+                        preserved unchanged for two thousand years. At All Saints, we welcome seekers
+                        from all backgrounds — whether you've never been to church or are exploring
+                        Orthodoxy after years in another tradition.
+                    </p>
+                    <p>
+                        Our community is devoted to mission and evangelism. We offer catechumen classes,
+                        Bible studies, and a warm welcome to all who wish to discover the fullness of
+                        the Christian faith.
+                    </p>
+                    <a href="#" class="btn btn-primary">Discover Orthodoxy</a>
+                    <a href="#" class="btn btn-secondary">What to Expect</a>
+                </div>
+                <div class="welcome-image">
+                    <div class="welcome-image-placeholder">
+                        <span class="cross">&#9766;</span>
+                    </div>
+                    <div class="welcome-quote">
+                        <blockquote>"Come and see"</blockquote>
+                        <cite>— John 1:46</cite>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>News & Updates</h2>
+                <div class="section-divider"></div>
+                <p>The latest from All Saints of Lincolnshire</p>
+            </div>
+
+            <div class="news-grid">
+                <div class="news-featured">
+                    <div class="news-meta">Newsletter · January 2026</div>
+                    <h3>Fr. Philip's Monthly Letter</h3>
+                    <p>
+                        As we begin a new year, we give thanks for the growth of our community and look
+                        forward to welcoming new catechumens. This month we reflect on the Feast of
+                        Theophany and the blessing of waters that sanctifies all creation...
+                    </p>
+                    <a href="#" class="btn btn-secondary">Read Full Newsletter</a>
+                </div>
+
+                <div class="news-sidebar">
+                    <h4>Recent Posts</h4>
+                    <div class="news-list">
+                        <div class="news-list-item">
+                            <h5>Lenten Retreat Announced</h5>
+                            <span>January 10, 2026</span>
+                        </div>
+                        <div class="news-list-item">
+                            <h5>New Bible Study Series</h5>
+                            <span>January 5, 2026</span>
+                        </div>
+                        <div class="news-list-item">
+                            <h5>Nativity Service Photos</h5>
+                            <span>December 26, 2025</span>
+                        </div>
+                        <div class="news-list-item">
+                            <h5>Food Bank Thank You</h5>
+                            <span>December 20, 2025</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">
+                        <span class="cross">&#9766;</span>
+                        All Saints of Lincolnshire
+                    </a>
+                    <p>Orthodox Christian Parish under the Antiochian Archdiocese, serving Lincoln and the surrounding area.</p>
+                    <div class="footer-social">
+                        <a href="#" title="Facebook">f</a>
+                        <a href="#" title="YouTube">&#9654;</a>
+                        <a href="#" title="Twitter">&#120143;</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Service Times</a></li>
+                        <li><a href="#">Calendar</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Discover</h4>
+                    <ul>
+                        <li><a href="#">What is Orthodoxy?</a></li>
+                        <li><a href="#">Your First Visit</a></li>
+                        <li><a href="#">Catechumenate</a></li>
+                        <li><a href="#">Ministries</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>
+                        Burton Road<br>
+                        Lincoln, UK<br><br>
+                        07969 332740<br>
+                        Fr.Philip@gmx.com
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 All Saints of Lincolnshire. All rights reserved.</span>
+                <span class="glory">Glory to Jesus Christ!</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
