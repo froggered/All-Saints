@@ -189,18 +189,27 @@ Home
 ### Page Details
 
 #### Home Page
-- **Purpose:** Welcome visitors, orient them to the site
+- **Purpose:** Welcome visitors, provide key information at a glance without additional clicks
 - **Content:**
   - Hero section with church name, image, and tagline
   - "Live Now" indicator if Fr. Philip is streaming (links to YouTube)
   - Welcome message
+  - **Weekly Service Times (prominently displayed):**
+    - Wednesday 6:00 PM - Vespers
+    - Thursday 11:00 AM - Moleiben
+    - Saturday 8:00 AM - Divine Liturgy
+    - Saturday 5:00 PM - Vespers
+    - Sunday 10:00 AM - Divine Liturgy
+  - **Location & Contact Info:**
+    - Address: Burton Road, Lincoln
+    - Fr. Philip's phone and email
+    - Embedded map or map link
   - Quick links to key pages:
     - New to Orthodoxy?
-    - Service Times
+    - Full Calendar
     - Latest Newsletter
-  - Upcoming events (next 3-5 from calendar)
+  - Upcoming events (next 3-5 from calendar, beyond regular services)
   - Latest news/blog post preview
-  - Contact information & map
 
 #### About Section
 
