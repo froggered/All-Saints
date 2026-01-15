@@ -13,7 +13,10 @@
       "Bash(git commit:*)",
       "Bash(npm create:*)",
       "Bash(npm install:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "WebFetch(domain:www.antiochian-orthodox.com)",
+      "WebSearch",
+      "Bash(curl:*)"
     ]
   }
 }
