@@ -376,9 +376,9 @@ Home
 
 #### Imagery (Assets)
 - **Available Images:**
-  - `Images/allsaints_icon.jpg` - Parish icon (used in hero section)
-  - `Images/church_exterior.jpg` - Saint Matthias Church Centre exterior
-  - `Images/iconostasis.jpg` - Church interior iconostasis (hero background)
+  - `Images/allsaints_icon.jpg` - Orthodox religious icon of All Saints (used in welcome section)
+  - `Images/church_exterior.jpg` - Saint Matthias Church Centre exterior (used in welcome section)
+  - `Images/iconostasis.jpg` - Church interior iconostasis (used as hero background)
 - Orthodox iconography
 - Orthodox crosses (used as logo/branding element)
 - Photos of church building and interior
