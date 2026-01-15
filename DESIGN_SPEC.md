@@ -1,8 +1,8 @@
 # All Saints of Lincolnshire - Website Design Specification
 
-**Version:** 1.2
+**Version:** 1.3
 **Date:** 2026-01-15
-**Status:** Design Phase
+**Status:** Development Phase
 
 ---
 
@@ -119,22 +119,18 @@ The parish has produced a priest and a deacon with others preparing for Axios me
   - Great developer experience
 
 #### Content Management System (CMS)
-- **Recommended:** Sanity.io or DecapCMS
-  - **Sanity.io** (Preferred):
-    - Extremely user-friendly interface
-    - Real-time collaboration
-    - Free tier sufficient for this project
-    - Excellent documentation
-    - Works well with any frontend framework
-  - **DecapCMS** (Alternative):
-    - GitHub-based (content stored in repo)
-    - Free and open-source
-    - Good for simpler needs
+- **Selected:** Sanity.io
+  - Extremely user-friendly interface
+  - Real-time collaboration
+  - Free tier sufficient for this project
+  - Excellent documentation
+  - Works well with Astro frontend
+  - WYSIWYG editing for non-technical users
 
 #### Additional Services
-- **YouTube Data API** - Automatic livestream detection
-- **Analytics** - Google Analytics or Plausible (privacy-friendly alternative)
-- **Forms** - Contact forms (can use Netlify Forms or similar)
+- **YouTube Data API** - Automatic livestream detection (Phase 2)
+- **Analytics** - Umami (privacy-friendly, self-hosted option - no Google Analytics due to privacy concerns)
+- **Forms** - Contact forms via Formspree or similar (Phase 2)
 
 ### Hosting & Deployment
 
@@ -703,22 +699,22 @@ Home
 
 ## Appendix
 
-### Recommended Technology Stack Summary
+### Confirmed Technology Stack
 
 **Frontend:**
-- Framework: Astro (recommended) or Next.js
-- Styling: Tailwind CSS or vanilla CSS
+- Framework: Astro
+- Styling: Tailwind CSS
 - Deployment: GitHub Pages (testing), Krystal Hosting (production)
 
 **Backend/CMS:**
-- CMS: Sanity.io (recommended) or DecapCMS
-- Forms: Netlify Forms or Formspree
-- Analytics: Plausible (privacy-friendly) or Google Analytics
+- CMS: Sanity.io
+- Forms: Formspree (Phase 2)
+- Analytics: Umami (privacy-friendly, no Google Analytics)
 
-**Integrations:**
+**Integrations (Phase 2):**
 - YouTube Data API (livestream detection)
 - Stripe or PayPal (donations)
-- Google Maps API (map embedding)
+- Google Maps embed (no API key required)
 
 **Development:**
 - Version Control: Git (GitHub)
@@ -751,6 +747,7 @@ Home
 | 1.0     | 2026-01-15 | Initial | Initial specification                                       |
 | 1.1     | 2026-01-15 | Initial | Removed "Live & Media" section, simplified YouTube integration |
 | 1.2     | 2026-01-15 | Initial | Added full venue address (Saint Matthias Church Centre, LN1 3TX). Confirmed typography (Oswald/Inter/Playfair Display) and color palette with hex codes. Added image assets. Updated homepage spec with service times prominently displayed. |
+| 1.3     | 2026-01-15 | Initial | Confirmed tech stack: Astro + Sanity.io + Tailwind CSS. Selected Umami for analytics (no Google Analytics - privacy concerns). Added Homepage Settings to admin CMS. Phase 1 scope: core pages only. |
 
 ---
 
