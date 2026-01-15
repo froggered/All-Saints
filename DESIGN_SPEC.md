@@ -1,6 +1,6 @@
 # All Saints of Lincolnshire - Website Design Specification
 
-**Version:** 1.0
+**Version:** 1.1
 **Date:** 2026-01-15
 **Status:** Planning Phase
 
@@ -182,10 +182,6 @@ Home
 │   ├── Newsletter Archive
 │   ├── News & Updates (Blog)
 │   └── Library Resources
-├── Live & Media
-│   ├── Livestream
-│   ├── YouTube Channel
-│   └── Bible Study
 └── Support Us
     └── Donate
 ```
@@ -196,12 +192,11 @@ Home
 - **Purpose:** Welcome visitors, orient them to the site
 - **Content:**
   - Hero section with church name, image, and tagline
-  - "Live Now" indicator if Fr. Philip is streaming
+  - "Live Now" indicator if Fr. Philip is streaming (links to YouTube)
   - Welcome message
   - Quick links to key pages:
     - New to Orthodoxy?
     - Service Times
-    - Watch Live
     - Latest Newsletter
   - Upcoming events (next 3-5 from calendar)
   - Latest news/blog post preview
@@ -233,10 +228,10 @@ Home
   - Food bank
   - Homeless outreach
   - Prison ministry
-  - Lincoln University services
+  - Lincoln University services (daily during term time)
   - Ministry preparation programs
-  - Library
-  - Bible study
+  - Library (Christian education resources)
+  - Bible study (weekday livestreamed sessions)
 
 **Contact**
 - Full contact details for Fr. Philip and Dn. Panagiotis
@@ -314,27 +309,6 @@ Home
 - Description of the church library
 - Focus on Christian education
 - Potentially list key resources (if desired later)
-
-#### Live & Media
-
-**Livestream**
-- **Live Indicator:**
-  - Automatically detect if Fr. Philip is live on YouTube
-  - Display "LIVE NOW" with embedded stream
-  - When not live: Show next scheduled livestream
-- **Schedule:**
-  - Regular livestreamed services
-  - Bible study schedule
-
-**YouTube Channel**
-- Embedded recent videos from Fr. Philip's channel
-- Link to full channel
-- Highlight important playlists/series
-
-**Bible Study**
-- Information about weekday Bible study
-- Schedule and topics
-- Links to livestreams/recordings
 
 #### Support Us
 
@@ -455,15 +429,15 @@ Home
 - **Homepage:** Latest newsletter featured
 
 #### 4. YouTube Integration
-- **Live Detection:**
+- **Live Detection (Homepage):**
   - Use YouTube Data API to check if Fr. Philip is currently live
-  - Display "LIVE NOW" banner on homepage when streaming
-  - Embed livestream automatically
-  - Show next scheduled stream when not live
-- **Recent Videos:**
-  - Display latest videos from channel
-  - Embed or link to YouTube
-- **Channel Link:** Prominent link to full channel
+  - Display prominent "LIVE NOW" banner/indicator on homepage when streaming
+  - Link directly to YouTube channel to watch live
+  - When not live, indicator is hidden or shows next scheduled stream time
+- **Social Links:**
+  - YouTube channel prominently linked in header/footer
+  - Social media bar includes YouTube alongside Facebook and Twitter
+  - Contact page includes YouTube link
 
 #### 5. Contact System
 - **Contact Information:** Displayed clearly on Contact page and footer
@@ -730,9 +704,10 @@ Home
 
 ## Document History
 
-| Version | Date       | Author | Changes              |
-|---------|------------|--------|----------------------|
-| 1.0     | 2026-01-15 | Initial | Initial specification |
+| Version | Date       | Author  | Changes                                                    |
+|---------|------------|---------|-------------------------------------------------------------|
+| 1.0     | 2026-01-15 | Initial | Initial specification                                       |
+| 1.1     | 2026-01-15 | Initial | Removed "Live & Media" section, simplified YouTube integration |
 
 ---
 
