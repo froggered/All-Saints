@@ -52,7 +52,7 @@ A modern website for All Saints of Lincolnshire, an Orthodox Christian church un
   - Phone: 07826 322064
 
 ### Church History
-All Saints of Lincolnshire grew as a mission from Louth parish. By 2005 it had grown to a point where it needed to meet weekly and Fr. Philip moved from Louth to Lincoln. English is by far the dominant language though Greek, Slavonic, and Romanian are also used as this reflects the multicultural nature of the community.
+All Saints of Lincolnshire grew as a mission from Louth parish. By 2005 it had grown to a point where it needed to meet weekly and Fr. Philip moved from Louth to Lincoln. English is the primary language of worship, though Greek, Slavonic, and Romanian are also used.
 
 The Temple was built in 1881 for the local barracks and passed out of use for them many decades ago. More recently it was a centre for Deaf Chaplaincy in Lincolnshire and was modified to provide offices, kitchens, toilets, meeting rooms, halls, a car park, and a "worship centre". The "worship centre" has now had to grow from a small part of the building to most of the building as the congregation has grown. Since the start we have always had catechumens most of whom have never attended a church before.
 

@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<BaseLayout title="Our Church">
+  <PageHeader
+    title="Our Church"
+    subtitle="All Saints of Lincolnshire - Orthodox Christian Parish"
+  />
+
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 mb-16">
+        <div>
+          <h2 class="text-3xl text-navy mb-6">About All Saints</h2>
+          <p class="text-charcoal mb-4">
+            All Saints of Lincolnshire is an Orthodox Christian parish under the
+            Antiochian Archdiocese of the British Isles and Ireland, led by
+            Metropolitan Silouan.
+          </p>
+          <p class="text-charcoal mb-4">
+            Our parish priest is Archimandrite Philip, assisted by Rev'd Dn. Panagiotis.
+            We are a congregation devoted to mission and evangelism, welcoming all who
+            seek to discover the ancient faith of Orthodox Christianity.
+          </p>
+          <p class="text-charcoal">
+            English is the primary language of our services, though Greek, Slavonic,
+            and Romanian are also used in our worship.
+          </p>
+        </div>
+        <div>
+          <img
+            src="/All-Saints/images/church_exterior.jpg"
+            alt="Saint Matthias Church Centre"
+            class="w-full rounded-xl shadow-lg"
+          />
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <div class="p-6 bg-off-white rounded-xl">
+          <h3 class="font-heading text-xl uppercase tracking-wide text-navy mb-4">Parish Details</h3>
+          <dl class="space-y-3 text-charcoal">
+            <div>
+              <dt class="text-slate text-sm">Parish Name</dt>
+              <dd class="font-medium">All Saints of Lincolnshire</dd>
+            </div>
+            <div>
+              <dt class="text-slate text-sm">Tradition</dt>
+              <dd class="font-medium">Orthodox Christian (Antiochian)</dd>
+            </div>
+            <div>
+              <dt class="text-slate text-sm">Bishop</dt>
+              <dd class="font-medium">Metropolitan Silouan</dd>
+            </div>
+            <div>
+              <dt class="text-slate text-sm">Archdiocese</dt>
+              <dd class="font-medium">Antiochian Orthodox Archdiocese of the British Isles and Ireland</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="p-6 bg-off-white rounded-xl">
+          <h3 class="font-heading text-xl uppercase tracking-wide text-navy mb-4">Our Clergy</h3>
+          <div class="space-y-4">
+            <div>
+              <p class="font-medium text-charcoal">Archimandrite Philip</p>
+              <p class="text-slate text-sm">Parish Priest</p>
+            </div>
+            <div>
+              <p class="font-medium text-charcoal">Rev'd Dn. Panagiotis</p>
+              <p class="text-slate text-sm">Monastery Deacon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-8 bg-navy text-white rounded-xl">
+        <h3 class="font-heading text-xl uppercase tracking-wide mb-4">
+          <span class="text-gold">&#9766;</span> Our Location
+        </h3>
+        <p class="text-white/80 mb-4">
+          We worship at Saint Matthias Church Centre on Burton Road in Lincoln.
+          The building includes a worship centre, meeting rooms, kitchen facilities,
+          and car parking.
+        </p>
+        <a href="/All-Saints/contact" class="btn btn-primary">
+          Get Directions
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
