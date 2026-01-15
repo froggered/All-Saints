@@ -34,39 +34,12 @@ const sections = [
 <BaseLayout title="About">
   <PageHeader
     title="About Us"
-    subtitle="Learn more about All Saints of Lincolnshire and our Orthodox Christian community"
+    subtitle="Learn more about All Saints of Lincolnshire"
   />
 
   <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-8 mb-16">
-        <div>
-          <h2 class="text-3xl text-navy mb-6">Welcome to All Saints</h2>
-          <p class="text-charcoal mb-4">
-            All Saints of Lincolnshire is an Orthodox Christian parish under the Antiochian
-            Archdiocese, serving Lincoln and the surrounding area. Our community is led by
-            Archimandrite Philip and Rev'd Dn. Panagiotis.
-          </p>
-          <p class="text-charcoal mb-4">
-            We are a congregation devoted to mission and evangelism. Most of our catechumens
-            have never attended a church before, and we warmly welcome all who seek to discover
-            the ancient faith of Orthodox Christianity.
-          </p>
-          <p class="text-charcoal">
-            English is the primary language of our services, though Greek, Slavonic, and Romanian
-            are also used in our worship.
-          </p>
-        </div>
-        <div>
-          <img
-            src="/All-Saints/images/church_exterior.jpg"
-            alt="Saint Matthias Church Centre"
-            class="w-full rounded-xl shadow-lg"
-          />
-        </div>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="grid sm:grid-cols-2 gap-6">
         {sections.map((section) => (
           <a
             href={section.href}
