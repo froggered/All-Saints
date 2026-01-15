@@ -378,7 +378,8 @@ Home
 - **Available Images:**
   - `Images/allsaints_icon.jpg` - Orthodox religious icon of All Saints (used in welcome section)
   - `Images/church_exterior.jpg` - Saint Matthias Church Centre exterior (used in welcome section)
-  - `Images/iconostasis.jpg` - Church interior iconostasis (used as hero background)
+  - `Images/iconostasis.jpg` - Church interior iconostasis
+  - `Images/pantocrator-dome.jpg` - Christ Pantocrator dome (placeholder hero background - to be replaced with church's own image later)
 - Orthodox iconography
 - Orthodox crosses (used as logo/branding element)
 - Photos of church building and interior
