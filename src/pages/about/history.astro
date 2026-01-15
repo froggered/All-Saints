@@ -64,9 +64,22 @@ import PageHeader from '../../components/PageHeader.astro';
         </p>
       </div>
 
-      <div class="mt-12 flex gap-4">
-        <a href="/All-Saints/about/mission" class="btn btn-primary">Our Mission</a>
-        <a href="/All-Saints/about/ministries" class="btn btn-secondary">Our Ministries</a>
+      <!-- Prev/Next Navigation -->
+      <div class="mt-16 flex justify-between items-center">
+        <a href="/All-Saints/about/church" class="group flex items-center gap-3 text-navy hover:text-burgundy transition-colors">
+          <span class="text-2xl group-hover:-translate-x-1 transition-transform">&larr;</span>
+          <span>
+            <span class="text-slate text-sm block">Previous</span>
+            <span class="font-heading text-xl uppercase tracking-wide">Our Church</span>
+          </span>
+        </a>
+        <a href="/All-Saints/about/clergy" class="group flex items-center gap-3 text-navy hover:text-burgundy transition-colors">
+          <span class="text-right">
+            <span class="text-slate text-sm block">Next</span>
+            <span class="font-heading text-xl uppercase tracking-wide">Our Clergy</span>
+          </span>
+          <span class="text-2xl group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </a>
       </div>
     </div>
   </section>

@@ -127,7 +127,7 @@ import PageHeader from '../../components/PageHeader.astro';
         </div>
       </div>
 
-      <div class="p-8 bg-navy text-white rounded-xl text-center">
+      <div class="p-8 bg-navy text-white rounded-xl text-center mb-16">
         <h3 class="font-heading text-2xl uppercase tracking-wide mb-4">
           Get in Touch
         </h3>
@@ -136,6 +136,24 @@ import PageHeader from '../../components/PageHeader.astro';
           about the Orthodox faith.
         </p>
         <a href="/All-Saints/contact" class="btn btn-primary">Contact Us</a>
+      </div>
+
+      <!-- Prev/Next Navigation -->
+      <div class="flex justify-between items-center">
+        <a href="/All-Saints/about/history" class="group flex items-center gap-3 text-navy hover:text-burgundy transition-colors">
+          <span class="text-2xl group-hover:-translate-x-1 transition-transform">&larr;</span>
+          <span>
+            <span class="text-slate text-sm block">Previous</span>
+            <span class="font-heading text-xl uppercase tracking-wide">Our History</span>
+          </span>
+        </a>
+        <a href="/All-Saints/about/ministries" class="group flex items-center gap-3 text-navy hover:text-burgundy transition-colors">
+          <span class="text-right">
+            <span class="text-slate text-sm block">Next</span>
+            <span class="font-heading text-xl uppercase tracking-wide">Ministries</span>
+          </span>
+          <span class="text-2xl group-hover:translate-x-1 transition-transform">&rarr;</span>
+        </a>
       </div>
     </div>
   </section>
