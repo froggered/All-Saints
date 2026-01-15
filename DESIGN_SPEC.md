@@ -588,10 +588,28 @@ Home
 - WYSIWYG editor
 - Preview before saving
 
+#### Homepage Settings
+- **Hero Section:**
+  - Hero background image (upload/select from media library)
+  - Hero title text (default: "All Saints of Lincolnshire")
+  - Hero subtitle text
+  - Hero description text
+  - Call-to-action button text and links
+- **Welcome Section:**
+  - Welcome section images (upload/select, supports multiple)
+  - Welcome heading and body text
+  - Quote text and citation
+- **Featured Content:**
+  - Toggle which sections appear on homepage
+  - Reorder homepage sections (drag and drop)
+- All image changes should take effect immediately on save
+- Preview option before publishing changes
+
 #### Media Library
 - Upload images
 - Organize images
 - Image optimization (automatic resizing/compression)
+- Easy selection interface for homepage images
 
 ### Statistics Dashboard
 
