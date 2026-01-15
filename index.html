@@ -200,6 +200,16 @@
             opacity: 0.4;
         }
 
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.35;
+        }
+
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -878,6 +888,52 @@
                 text-align: center;
             }
         }
+
+        @media (max-width: 430px) {
+            .service-list li {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto auto;
+                gap: 0.25rem 1rem;
+            }
+
+            .service-day {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .service-time {
+                grid-column: 2;
+                grid-row: 1;
+                text-align: right;
+            }
+
+            .service-name {
+                grid-column: 1 / -1;
+                grid-row: 2;
+                padding-bottom: 0.5rem;
+            }
+
+            .service-times-card {
+                padding: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+                letter-spacing: 0.1em;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero .btn {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -904,25 +960,14 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-video-container">
-            <video class="hero-video" autoplay muted loop playsinline>
-                <source src="https://assets.mixkit.co/videos/preview/mixkit-lighting-a-candle-in-the-dark-4068-large.mp4" type="video/mp4">
-            </video>
+            <img src="images/iconostasis.jpg" alt="All Saints Iconostasis" class="hero-bg-image">
             <div class="hero-overlay"></div>
         </div>
 
         <div class="hero-content">
-            <!-- Animated Orthodox Cross SVG -->
+            <!-- Parish Icon -->
             <div class="hero-icon cross-glow">
-                <svg class="orthodox-cross-svg" viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Top bar -->
-                    <line class="cross-line" x1="30" y1="15" x2="50" y2="15"/>
-                    <!-- Main vertical -->
-                    <line class="cross-line" x1="40" y1="5" x2="40" y2="115"/>
-                    <!-- Main horizontal -->
-                    <line class="cross-line" x1="15" y1="40" x2="65" y2="40"/>
-                    <!-- Slanted bottom bar -->
-                    <line class="cross-line" x1="22" y1="90" x2="58" y2="80"/>
-                </svg>
+                <img src="images/allsaints_icon.jpg" alt="All Saints Icon" style="width: 100%; height: 100%; object-fit: contain; border-radius: 8px;">
             </div>
 
             <h1>All Saints of Lincolnshire</h1>
@@ -1088,9 +1133,7 @@
                     <a href="#" class="btn btn-secondary">What to Expect</a>
                 </div>
                 <div class="welcome-image">
-                    <div class="welcome-image-placeholder">
-                        <span class="cross">&#9766;</span>
-                    </div>
+                    <img src="images/church_exterior.jpg" alt="Saint Matthias Church Centre exterior" style="width: 100%; border-radius: 12px; aspect-ratio: 4/3; object-fit: cover; box-shadow: 0 8px 24px rgba(0,0,0,0.15);">
                     <div class="welcome-quote">
                         <blockquote>"Come and see"</blockquote>
                         <cite>— John 1:46</cite>

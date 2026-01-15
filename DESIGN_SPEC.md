@@ -1,8 +1,8 @@
 # All Saints of Lincolnshire - Website Design Specification
 
-**Version:** 1.1
+**Version:** 1.2
 **Date:** 2026-01-15
-**Status:** Planning Phase
+**Status:** Design Phase
 
 ---
 
@@ -32,7 +32,8 @@ A modern website for All Saints of Lincolnshire, an Orthodox Christian church un
 
 ### Basic Details
 - **Name:** All Saints of Lincolnshire
-- **Location:** Burton Road, Lincoln
+- **Venue:** Saint Matthias Church Centre
+- **Address:** Burton Road, Lincoln LN1 3TX
 - **Tradition:** Orthodox Christian (Antiochian Archdiocese)
 - **Bishop:** Metropolitan Silouan
 - **Parish Priest:** Archimandrite Philip
@@ -349,26 +350,39 @@ Home
 
 ### Visual Elements
 
-#### Typography
-- **Headings:** Bold, modern sans-serif (possibly with subtle Byzantine influence)
-- **Body:** Clean, highly readable sans-serif
-- **Accent:** Serif option for quotes or special text
+#### Typography (Confirmed)
+- **Headings:** Oswald (500-700 weight, uppercase with letter-spacing)
+  - Bold, modern, condensed sans-serif
+  - Strong visual impact with uppercase styling
+  - Named after St. Oswald of Northumbria - fitting for a British Orthodox parish
+- **Body:** Inter (400-500 weight)
+  - Clean, highly readable sans-serif
+  - Excellent screen readability
+- **Accent:** Playfair Display (for quotes and special text)
+  - Elegant serif for liturgical quotes and citations
 
-#### Color Palette
-- **Modern approach** (not traditional gold/red/blue)
-- **Suggestions:**
-  - Deep navy or charcoal (primary)
-  - White/off-white (background)
-  - Gold or warm accent (links, highlights)
-  - High contrast combinations
-- **Accessibility:** All color combinations must meet WCAG AA contrast ratios
+#### Color Palette (Confirmed)
+- **Primary Colors:**
+  - Deep Navy: #1a1f3c (hero backgrounds, headers)
+  - Charcoal: #2d2d2d (text, secondary backgrounds)
+  - Off-White: #f8f6f3 (page background)
+  - Gold: #c9a227 (accents, links, highlights)
+- **Extended Palette:**
+  - Burgundy: #722f37 (feast days, special accents)
+  - Slate: #64748b (muted text, captions)
+  - Ivory: #fffef9 (card backgrounds)
+  - Live Red: #dc2626 (livestream indicator)
+- **Accessibility:** All color combinations meet WCAG AA contrast ratios
 
-#### Imagery
+#### Imagery (Assets)
+- **Available Images:**
+  - `images/allsaints_icon.jpg` - Parish icon (used in hero section)
+  - `images/church_exterior.jpg` - Saint Matthias Church Centre exterior
+  - `images/iconostasis.jpg` - Church interior iconostasis (hero background)
 - Orthodox iconography
-- Orthodox crosses (can be used as logo/branding)
+- Orthodox crosses (used as logo/branding element)
 - Photos of church building and interior
 - Photos from services and events
-- **Note:** Specific images to be sourced online or from parish
 
 #### Icons & Graphics
 - Orthodox cross as primary symbol
@@ -717,6 +731,7 @@ Home
 |---------|------------|---------|-------------------------------------------------------------|
 | 1.0     | 2026-01-15 | Initial | Initial specification                                       |
 | 1.1     | 2026-01-15 | Initial | Removed "Live & Media" section, simplified YouTube integration |
+| 1.2     | 2026-01-15 | Initial | Added full venue address (Saint Matthias Church Centre, LN1 3TX). Confirmed typography (Oswald/Inter/Playfair Display) and color palette with hex codes. Added image assets. Updated homepage spec with service times prominently displayed. |
 
 ---
 
