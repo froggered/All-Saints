@@ -1,0 +1,21 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  backgroundImage?: string;
+}
+
+const { title, subtitle, backgroundImage = '/All-Saints/images/iconostasis.jpg' } = Astro.props;
+---
+
+<section class="relative bg-navy pt-32 pb-20">
+  <div class="absolute inset-0">
+    <img src={backgroundImage} alt="" class="w-full h-full object-cover opacity-20" />
+    <div class="absolute inset-0 bg-gradient-to-b from-navy/90 to-navy"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 text-center text-white">
+    <h1 class="text-4xl md:text-5xl font-bold tracking-wide mb-4">{title}</h1>
+    {subtitle && <p class="text-white/70 text-lg max-w-2xl mx-auto">{subtitle}</p>}
+  </div>
+</section>

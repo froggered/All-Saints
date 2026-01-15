@@ -1,0 +1,80 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  description: string;
+  backgroundImage?: string;
+  showCross?: boolean;
+  primaryCta?: { text: string; href: string };
+  secondaryCta?: { text: string; href: string };
+}
+
+const {
+  title,
+  subtitle,
+  description,
+  backgroundImage = '/All-Saints/images/pantocrator-dome.jpg',
+  showCross = true,
+  primaryCta,
+  secondaryCta,
+} = Astro.props;
+---
+
+<section class="relative min-h-screen flex items-center justify-center bg-navy pt-20">
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <img
+      src={backgroundImage}
+      alt=""
+      class="w-full h-full object-cover opacity-35"
+    />
+    <div class="absolute inset-0 bg-gradient-to-br from-navy/85 to-charcoal/90"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center text-white max-w-3xl px-6 py-12">
+    {showCross && (
+      <div class="w-24 h-32 mx-auto mb-8 cross-glow">
+        <svg class="orthodox-cross-svg w-full h-full" viewBox="0 0 80 120" xmlns="http://www.w3.org/2000/svg">
+          <line class="cross-line" x1="30" y1="15" x2="50" y2="15" />
+          <line class="cross-line" x1="40" y1="5" x2="40" y2="115" />
+          <line class="cross-line" x1="15" y1="40" x2="65" y2="40" />
+          <line class="cross-line" x1="22" y1="90" x2="58" y2="80" />
+        </svg>
+      </div>
+    )}
+
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-extra-wide mb-4">
+      {title}
+    </h1>
+
+    <p class="font-heading text-sm md:text-base uppercase tracking-[0.2em] text-gold mb-6">
+      {subtitle}
+    </p>
+
+    <p class="text-lg text-white/85 mb-8 max-w-2xl mx-auto">
+      {description}
+    </p>
+
+    {(primaryCta || secondaryCta) && (
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        {primaryCta && (
+          <a href={primaryCta.href} class="btn btn-primary">
+            {primaryCta.text}
+          </a>
+        )}
+        {secondaryCta && (
+          <a href={secondaryCta.href} class="btn btn-secondary">
+            {secondaryCta.text}
+          </a>
+        )}
+      </div>
+    )}
+  </div>
+
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 text-xs font-heading uppercase tracking-widest flex flex-col items-center gap-2">
+    <span>Scroll</span>
+    <div class="w-px h-10 bg-gradient-to-b from-white/50 to-transparent animate-pulse"></div>
+  </div>
+</section>

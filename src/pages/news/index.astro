@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+const posts = [
+  {
+    title: "Fr. Philip's January Newsletter",
+    date: 'January 15, 2026',
+    excerpt: 'As we begin a new year, we give thanks for the growth of our community and look forward to welcoming new catechumens...',
+    type: 'newsletter',
+  },
+  {
+    title: 'Lenten Retreat Announced',
+    date: 'January 10, 2026',
+    excerpt: 'We are pleased to announce our annual Lenten retreat, to be held on the first Saturday of Great Lent...',
+    type: 'news',
+  },
+  {
+    title: 'New Bible Study Series',
+    date: 'January 5, 2026',
+    excerpt: 'Starting this month, Fr. Philip will lead a new Bible study series on the Gospel of John, livestreamed on weekday evenings...',
+    type: 'news',
+  },
+  {
+    title: 'Nativity Service Photos',
+    date: 'December 26, 2025',
+    excerpt: 'Photos from our beautiful Nativity services are now available. Thank you to all who celebrated with us...',
+    type: 'news',
+  },
+  {
+    title: 'Food Bank Thank You',
+    date: 'December 20, 2025',
+    excerpt: 'A heartfelt thank you to everyone who contributed to our Christmas food bank collection...',
+    type: 'news',
+  },
+];
+---
+
+<BaseLayout title="News & Updates">
+  <PageHeader
+    title="News & Updates"
+    subtitle="The latest from All Saints of Lincolnshire"
+  />
+
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="space-y-8">
+        {posts.map((post) => (
+          <article class="p-6 bg-off-white rounded-xl border border-black/5 hover:shadow-lg transition-shadow">
+            <div class="flex items-center gap-3 mb-3">
+              <span class={`px-3 py-1 rounded-full text-xs font-heading uppercase tracking-wide ${
+                post.type === 'newsletter' ? 'bg-gold text-navy' : 'bg-navy text-white'
+              }`}>
+                {post.type}
+              </span>
+              <span class="text-slate text-sm">{post.date}</span>
+            </div>
+            <h2 class="font-heading text-xl uppercase tracking-wide text-navy mb-3">
+              {post.title}
+            </h2>
+            <p class="text-charcoal mb-4">{post.excerpt}</p>
+            <a href="#" class="text-gold font-heading text-sm uppercase tracking-wide hover:underline">
+              Read More →
+            </a>
+          </article>
+        ))}
+      </div>
+
+      <div class="mt-12 p-6 bg-navy text-white rounded-xl text-center">
+        <h3 class="font-heading text-lg uppercase tracking-wide mb-3">
+          Subscribe to Our Newsletter
+        </h3>
+        <p class="text-white/70 text-sm mb-4">
+          Receive Fr. Philip's monthly newsletter and parish updates directly in your inbox.
+        </p>
+        <p class="text-gold text-sm italic">
+          Newsletter signup coming soon
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

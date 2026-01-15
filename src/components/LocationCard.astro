@@ -1,0 +1,59 @@
+---
+const socialLinks = [
+  { href: 'https://www.facebook.com/Fr.Philip', label: 'Facebook', icon: 'f' },
+  { href: 'https://www.youtube.com/@ArchimandritePhilip', label: 'YouTube', icon: '▶' },
+  { href: 'https://twitter.com/FrPhilip', label: 'Twitter', icon: '𝕏' },
+];
+---
+
+<div class="bg-off-white rounded-xl overflow-hidden border border-black/5">
+  <!-- Map -->
+  <div class="h-48">
+    <iframe
+      src="https://maps.google.com/maps?q=Saint+Matthias+Church+Centre,+Burton+Rd,+Lincoln+LN1+3TX,+UK&t=&z=15&ie=UTF8&iwloc=&output=embed"
+      class="w-full h-full"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Church location map"
+    ></iframe>
+  </div>
+
+  <!-- Details -->
+  <div class="p-6">
+    <h3 class="font-heading text-xl uppercase tracking-wide text-navy mb-4">Find Us</h3>
+
+    <div class="space-y-3 mb-6">
+      <div class="flex items-start gap-3 text-charcoal">
+        <span class="text-gold text-lg">&#9906;</span>
+        <span class="text-sm">
+          Saint Matthias Church Centre<br />
+          Burton Road, Lincoln LN1 3TX
+        </span>
+      </div>
+
+      <div class="flex items-center gap-3 text-charcoal">
+        <span class="text-gold text-lg">&#9742;</span>
+        <span class="text-sm">07969 332740</span>
+      </div>
+
+      <div class="flex items-center gap-3 text-charcoal">
+        <span class="text-gold text-lg">&#9993;</span>
+        <span class="text-sm">Fr.Philip@gmx.com</span>
+      </div>
+    </div>
+
+    <div class="flex gap-3">
+      {socialLinks.map((link) => (
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center hover:bg-gold hover:text-navy transition-colors"
+          aria-label={link.label}
+        >
+          {link.icon}
+        </a>
+      ))}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import ServiceTimes from '../../components/ServiceTimes.astro';
+import EventCard from '../../components/EventCard.astro';
+
+const upcomingEvents = [
+  {
+    month: 'January',
+    day: '19',
+    weekday: 'Sunday',
+    title: 'Feast of Theophany',
+    time: 'Divine Liturgy · 10:00 AM',
+    description: 'Special blessing of waters following the Divine Liturgy.',
+    featured: true,
+  },
+  {
+    month: 'January',
+    day: '25',
+    weekday: 'Saturday',
+    title: 'Catechumen Class',
+    time: 'E-Quip Session · 3:00 PM',
+    description: 'Weekly instruction for those exploring the Orthodox faith.',
+  },
+  {
+    month: 'February',
+    day: '02',
+    weekday: 'Sunday',
+    title: 'Presentation of Christ',
+    time: 'Divine Liturgy · 10:00 AM',
+    description: 'Celebration of the Meeting of our Lord in the Temple.',
+    featured: true,
+  },
+  {
+    month: 'February',
+    day: '15',
+    weekday: 'Saturday',
+    title: 'Parish Meeting',
+    time: 'After Liturgy',
+    description: 'Quarterly parish meeting to discuss community matters.',
+  },
+  {
+    month: 'March',
+    day: '03',
+    weekday: 'Monday',
+    title: 'Clean Monday',
+    time: 'Great Lent Begins',
+    description: 'The beginning of the Great Lenten fast.',
+    featured: true,
+  },
+  {
+    month: 'March',
+    day: '25',
+    weekday: 'Tuesday',
+    title: 'Annunciation',
+    time: 'Divine Liturgy · 10:00 AM',
+    description: 'Feast of the Annunciation of the Theotokos.',
+    featured: true,
+  },
+];
+---
+
+<BaseLayout title="Services & Calendar">
+  <PageHeader
+    title="Services & Calendar"
+    subtitle="Join us for Orthodox Christian worship throughout the week"
+  />
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-3 gap-12">
+        <!-- Service Times -->
+        <div class="lg:col-span-1">
+          <ServiceTimes />
+
+          <div class="mt-8 p-6 bg-off-white rounded-xl">
+            <h3 class="font-heading text-lg uppercase tracking-wide text-navy mb-4">
+              About Our Services
+            </h3>
+            <p class="text-slate text-sm mb-4">
+              The Divine Liturgy is the central worship service of the Orthodox Church,
+              celebrated on Saturdays and Sundays. Vespers is the evening prayer service
+              that begins the liturgical day.
+            </p>
+            <p class="text-slate text-sm">
+              All are welcome to attend. If this is your first visit, please see our
+              <a href="/All-Saints/discover/visit" class="text-gold hover:underline">guide for visitors</a>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Calendar -->
+        <div class="lg:col-span-2" id="calendar">
+          <h2 class="text-3xl text-navy mb-8">Upcoming Events</h2>
+
+          <div class="grid sm:grid-cols-2 gap-6">
+            {upcomingEvents.map((event) => (
+              <EventCard {...event} />
+            ))}
+          </div>
+
+          <div class="mt-12 p-6 bg-burgundy/10 border border-burgundy/20 rounded-xl">
+            <h3 class="font-heading text-lg uppercase tracking-wide text-burgundy mb-2">
+              Special Services
+            </h3>
+            <p class="text-charcoal text-sm">
+              During feast days and special occasions, service times may vary. Please check
+              this calendar regularly or contact Fr. Philip for the latest schedule.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

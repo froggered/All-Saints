@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+---
+
+<BaseLayout title="Support Us">
+  <PageHeader
+    title="Support Us"
+    subtitle="Help us continue our mission of faith, service, and community"
+  />
+
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl text-navy mb-6">Your Generosity Makes a Difference</h2>
+        <p class="text-charcoal text-lg max-w-2xl mx-auto">
+          All Saints of Lincolnshire relies on the generous support of our community
+          to continue our work of worship, education, and outreach.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <div class="p-8 bg-off-white rounded-xl">
+          <h3 class="font-heading text-xl uppercase tracking-wide text-navy mb-4">
+            How Your Support Helps
+          </h3>
+          <ul class="space-y-3 text-charcoal">
+            <li class="flex items-start gap-3">
+              <span class="text-gold">✓</span>
+              <span>Maintaining our church building and grounds</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-gold">✓</span>
+              <span>Supporting our food bank and homeless outreach</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-gold">✓</span>
+              <span>Providing catechesis and educational materials</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-gold">✓</span>
+              <span>Livestreaming services for those who cannot attend</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-gold">✓</span>
+              <span>Growing our library of Christian education resources</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-8 bg-navy text-white rounded-xl">
+          <h3 class="font-heading text-xl uppercase tracking-wide mb-4">
+            <span class="text-gold">&#9766;</span> Online Donations
+          </h3>
+          <p class="text-white/80 mb-6">
+            Online donation functionality is coming soon. In the meantime, please
+            speak with Fr. Philip about how you can support our parish.
+          </p>
+          <div class="p-4 bg-white/10 rounded-lg">
+            <p class="text-sm text-white/70 italic">
+              Secure online giving with one-time and recurring options will be
+              available shortly.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-8 bg-burgundy/10 border border-burgundy/20 rounded-xl">
+        <h3 class="font-heading text-xl uppercase tracking-wide text-burgundy mb-4">
+          Other Ways to Give
+        </h3>
+        <div class="grid md:grid-cols-2 gap-6 text-charcoal">
+          <div>
+            <h4 class="font-heading text-sm uppercase tracking-wide text-navy mb-2">
+              In Person
+            </h4>
+            <p class="text-sm">
+              Donations can be made in person during any of our services. Collection
+              baskets are available, or you may speak directly with Fr. Philip.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-heading text-sm uppercase tracking-wide text-navy mb-2">
+              Bank Transfer
+            </h4>
+            <p class="text-sm">
+              For bank transfer details, please contact Fr. Philip directly at
+              <a href="mailto:Fr.Philip@gmx.com" class="text-gold hover:underline">Fr.Philip@gmx.com</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 text-center">
+        <blockquote class="font-accent italic text-2xl text-navy mb-4">
+          "God loves a cheerful giver"
+        </blockquote>
+        <cite class="text-slate">— 2 Corinthians 9:7</cite>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

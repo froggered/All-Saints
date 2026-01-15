@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+const sections = [
+  {
+    title: 'Our Church',
+    href: '/All-Saints/about/church',
+    description: 'Learn about All Saints of Lincolnshire, our tradition, and our community.',
+  },
+  {
+    title: 'Our History',
+    href: '/All-Saints/about/history',
+    description: 'From a mission in Louth to a thriving parish in Lincoln.',
+  },
+  {
+    title: 'Our Mission',
+    href: '/All-Saints/about/mission',
+    description: 'A congregation devoted to mission, evangelism, and service.',
+  },
+  {
+    title: 'Ministries',
+    href: '/All-Saints/about/ministries',
+    description: 'Catechesis, outreach, education, and community service.',
+  },
+  {
+    title: 'Contact',
+    href: '/All-Saints/contact',
+    description: 'Get in touch with us or find directions to our church.',
+  },
+];
+---
+
+<BaseLayout title="About">
+  <PageHeader
+    title="About Us"
+    subtitle="Learn more about All Saints of Lincolnshire and our Orthodox Christian community"
+  />
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
+        <div>
+          <h2 class="text-3xl text-navy mb-6">Welcome to All Saints</h2>
+          <p class="text-charcoal mb-4">
+            All Saints of Lincolnshire is an Orthodox Christian parish under the Antiochian
+            Archdiocese, serving Lincoln and the surrounding area. Our community is led by
+            Archimandrite Philip and Rev'd Dn. Panagiotis.
+          </p>
+          <p class="text-charcoal mb-4">
+            We are a congregation devoted to mission and evangelism. Most of our catechumens
+            have never attended a church before, and we warmly welcome all who seek to discover
+            the ancient faith of Orthodox Christianity.
+          </p>
+          <p class="text-charcoal">
+            English is the primary language of our services, though Greek, Slavonic, and Romanian
+            are also used, reflecting the multicultural nature of our community.
+          </p>
+        </div>
+        <div>
+          <img
+            src="/All-Saints/images/church_exterior.jpg"
+            alt="Saint Matthias Church Centre"
+            class="w-full rounded-xl shadow-lg"
+          />
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {sections.map((section) => (
+          <a
+            href={section.href}
+            class="block p-6 bg-off-white rounded-xl border border-black/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-200"
+          >
+            <h3 class="font-heading text-xl uppercase tracking-wide text-navy mb-2">
+              {section.title}
+            </h3>
+            <p class="text-slate text-sm">{section.description}</p>
+            <span class="inline-block mt-4 text-gold font-heading text-sm uppercase tracking-wide">
+              Learn More →
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

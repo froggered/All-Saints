@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+const sections = [
+  {
+    title: 'What is Orthodoxy?',
+    href: '/All-Saints/discover/orthodoxy',
+    description: 'An introduction to the Orthodox Christian faith and its ancient traditions.',
+    icon: '☦',
+  },
+  {
+    title: 'What to Expect',
+    href: '/All-Saints/discover/visit',
+    description: 'Everything you need to know before your first visit to an Orthodox service.',
+    icon: '🕯',
+  },
+  {
+    title: 'The Catechumenate',
+    href: '/All-Saints/discover/catechumenate',
+    description: 'The journey to becoming Orthodox - classes, preparation, and reception.',
+    icon: '📖',
+  },
+];
+---
+
+<BaseLayout title="Discover Orthodoxy">
+  <PageHeader
+    title="Discover Orthodoxy"
+    subtitle="Explore the ancient faith of the Orthodox Church"
+  />
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="text-3xl text-navy mb-6">Welcome, Seeker</h2>
+        <p class="text-charcoal text-lg mb-4">
+          Orthodox Christianity is the ancient faith passed down from Christ through His Apostles,
+          preserved unchanged for two thousand years. If you're exploring Orthodoxy—whether from
+          another Christian tradition or with no church background at all—you're welcome here.
+        </p>
+        <p class="text-charcoal">
+          At All Saints of Lincolnshire, we've welcomed many seekers, and most of our catechumens
+          had never attended a church before. We understand the questions you might have.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        {sections.map((section) => (
+          <a
+            href={section.href}
+            class="block p-8 bg-off-white rounded-xl border border-black/5 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 text-center"
+          >
+            <span class="text-5xl mb-4 block">{section.icon}</span>
+            <h3 class="font-heading text-xl uppercase tracking-wide text-navy mb-3">
+              {section.title}
+            </h3>
+            <p class="text-slate text-sm">{section.description}</p>
+          </a>
+        ))}
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <img
+            src="/All-Saints/images/allsaints_icon.jpg"
+            alt="All Saints Orthodox Icon"
+            class="w-full max-w-md mx-auto rounded-xl shadow-lg"
+          />
+        </div>
+        <div>
+          <h2 class="text-3xl text-navy mb-6">"Come and See"</h2>
+          <p class="text-charcoal mb-4">
+            When Philip told Nathanael about Jesus, Nathanael was skeptical. Philip's response
+            was simple: "Come and see" (John 1:46). This remains the best way to discover Orthodoxy.
+          </p>
+          <p class="text-charcoal mb-4">
+            We invite you to visit us, experience the Divine Liturgy, and ask your questions.
+            There's no pressure, no sign-up sheets—just an open door and a community ready to
+            welcome you.
+          </p>
+          <p class="text-charcoal mb-8">
+            Fr. Philip is always happy to meet with those exploring the faith. Feel free to
+            reach out to arrange a conversation.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a href="/All-Saints/services" class="btn btn-primary">Service Times</a>
+            <a href="/All-Saints/contact" class="btn btn-secondary">Contact Fr. Philip</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 bg-navy text-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl mb-4">Common Questions</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="space-y-6">
+        {[
+          {
+            q: "Do I need to be Orthodox to attend?",
+            a: "No! Everyone is welcome to attend our services. You can observe, participate as much as you're comfortable with, and ask questions afterward."
+          },
+          {
+            q: "What should I wear?",
+            a: "Modest, respectful attire is appropriate. There's no strict dress code—come as you are, and you'll fit right in."
+          },
+          {
+            q: "How long are the services?",
+            a: "The Divine Liturgy typically lasts about 90 minutes to 2 hours. Vespers is shorter, usually about 45 minutes to an hour."
+          },
+          {
+            q: "Can I receive communion?",
+            a: "Holy Communion is reserved for baptized and chrismated Orthodox Christians who have prepared through fasting and confession. However, everyone is welcome to receive blessed bread (antidoron) at the end of the Liturgy."
+          },
+          {
+            q: "What language are services in?",
+            a: "English is the primary language at All Saints, though we occasionally use Greek, Slavonic, and Romanian to reflect our multicultural community."
+          },
+        ].map((faq) => (
+          <div class="p-6 bg-white/5 rounded-xl">
+            <h3 class="font-heading text-lg uppercase tracking-wide text-gold mb-2">{faq.q}</h3>
+            <p class="text-white/80">{faq.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

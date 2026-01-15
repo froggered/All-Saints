@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const clergy = [
+  {
+    name: 'Archimandrite Philip',
+    role: 'Parish Priest',
+    phone: '07969 332740',
+    email: 'Fr.Philip@gmx.com',
+    social: [
+      { platform: 'Facebook', url: 'https://www.facebook.com/Fr.Philip' },
+      { platform: 'YouTube', url: 'https://www.youtube.com/@ArchimandritePhilip' },
+      { platform: 'Twitter', url: 'https://twitter.com/FrPhilip' },
+    ],
+  },
+  {
+    name: "Rev'd Dn. Panagiotis",
+    role: 'Monastery Deacon',
+    phone: '07826 322064',
+  },
+];
+---
+
+<BaseLayout title="Contact">
+  <PageHeader
+    title="Contact Us"
+    subtitle="We'd love to hear from you"
+  />
+
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-12">
+        <!-- Contact Information -->
+        <div>
+          <h2 class="text-3xl text-navy mb-8">Get in Touch</h2>
+
+          <div class="space-y-8">
+            {clergy.map((person) => (
+              <div class="p-6 bg-off-white rounded-xl">
+                <h3 class="font-heading text-xl uppercase tracking-wide text-navy mb-1">
+                  {person.name}
+                </h3>
+                <p class="text-gold font-heading text-sm uppercase tracking-wide mb-4">
+                  {person.role}
+                </p>
+
+                <div class="space-y-2 text-charcoal">
+                  <p class="flex items-center gap-3">
+                    <span class="text-gold">&#9742;</span>
+                    <a href={`tel:${person.phone}`} class="hover:text-gold transition-colors">
+                      {person.phone}
+                    </a>
+                  </p>
+                  {person.email && (
+                    <p class="flex items-center gap-3">
+                      <span class="text-gold">&#9993;</span>
+                      <a href={`mailto:${person.email}`} class="hover:text-gold transition-colors">
+                        {person.email}
+                      </a>
+                    </p>
+                  )}
+                </div>
+
+                {person.social && (
+                  <div class="flex gap-3 mt-4">
+                    {person.social.map((link) => (
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-sm text-slate hover:text-gold transition-colors"
+                      >
+                        {link.platform}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-8 p-6 bg-navy text-white rounded-xl">
+            <h3 class="font-heading text-lg uppercase tracking-wide mb-4">
+              <span class="text-gold">&#9766;</span> Diocese Information
+            </h3>
+            <p class="text-white/80 text-sm mb-2">
+              All Saints of Lincolnshire is part of the Antiochian Orthodox Archdiocese
+              of the British Isles and Ireland.
+            </p>
+            <p class="text-white/80 text-sm">
+              <strong class="text-white">Bishop:</strong> Metropolitan Silouan
+            </p>
+            <a
+              href="https://antiochian-orthodox.co.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block mt-4 text-gold hover:underline text-sm"
+            >
+              Visit Archdiocese Website →
+            </a>
+          </div>
+        </div>
+
+        <!-- Location & Map -->
+        <div>
+          <h2 class="text-3xl text-navy mb-8">Find Us</h2>
+
+          <div class="bg-off-white rounded-xl overflow-hidden">
+            <div class="h-64">
+              <iframe
+                src="https://maps.google.com/maps?q=Saint+Matthias+Church+Centre,+Burton+Rd,+Lincoln+LN1+3TX,+UK&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                class="w-full h-full"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Church location map"
+              ></iframe>
+            </div>
+
+            <div class="p-6">
+              <h3 class="font-heading text-lg uppercase tracking-wide text-navy mb-4">
+                Saint Matthias Church Centre
+              </h3>
+              <address class="not-italic text-charcoal mb-6">
+                Burton Road<br />
+                Lincoln<br />
+                LN1 3TX<br />
+                United Kingdom
+              </address>
+
+              <a
+                href="https://maps.google.com/maps?q=Saint+Matthias+Church+Centre,+Burton+Rd,+Lincoln+LN1+3TX,+UK"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >
+                Get Directions
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-8 p-6 bg-off-white rounded-xl">
+            <h3 class="font-heading text-lg uppercase tracking-wide text-navy mb-4">
+              Parking & Access
+            </h3>
+            <p class="text-slate text-sm mb-4">
+              The church has its own car park accessible from Burton Road. The building
+              is wheelchair accessible with facilities including toilets and a kitchen area.
+            </p>
+            <p class="text-slate text-sm">
+              If you need any assistance with access, please contact Fr. Philip in advance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
