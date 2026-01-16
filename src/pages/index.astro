@@ -4,34 +4,55 @@ import Hero from '../components/Hero.astro';
 import ServiceTimes from '../components/ServiceTimes.astro';
 import LocationCard from '../components/LocationCard.astro';
 import EventCard from '../components/EventCard.astro';
+import { getCollection } from 'astro:content';
+import { getServices, getSettings } from '../lib/content';
 
-const upcomingEvents = [
-  {
-    month: 'January',
-    day: '19',
-    weekday: 'Sunday',
-    title: 'Feast of Theophany',
-    time: 'Divine Liturgy · 10:00 AM',
-    description: 'Special blessing of waters following the Divine Liturgy. All are welcome to participate.',
-    featured: true,
-  },
-  {
-    month: 'January',
-    day: '25',
-    weekday: 'Saturday',
-    title: 'Catechumen Class',
-    time: 'E-Quip Session · 3:00 PM',
-    description: 'Weekly instruction for those exploring the Orthodox faith.',
-  },
-  {
-    month: 'February',
-    day: '02',
-    weekday: 'Sunday',
-    title: 'Presentation of Christ',
-    time: 'Divine Liturgy · 10:00 AM',
-    description: 'Celebration of the Meeting of our Lord in the Temple.',
-  },
-];
+// Get services from YAML
+const services = getServices();
+
+// Get settings
+const settings = getSettings();
+
+// Get upcoming events
+const now = new Date();
+const eventEntries = await getCollection('events');
+const upcomingEvents = eventEntries
+  .filter(e => e.data.date >= now)
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime())
+  .slice(0, 3)
+  .map(event => {
+    const date = event.data.date;
+    const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    return {
+      month: months[date.getMonth()],
+      day: String(date.getDate()).padStart(2, '0'),
+      weekday: weekdays[date.getDay()],
+      title: event.data.title,
+      time: event.data.time,
+      description: event.data.description,
+      featured: event.data.featured,
+    };
+  });
+
+// Get recent news
+const newsEntries = await getCollection('news');
+const recentNews = newsEntries
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 4)
+  .map(post => ({
+    title: post.data.title,
+    date: post.data.date.toLocaleDateString('en-GB', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    }),
+    excerpt: post.data.excerpt,
+    featured: post.data.featured,
+  }));
+
+// Featured news for the big card
+const featuredNews = recentNews.find(n => n.featured) || recentNews[0];
 ---
 
 <BaseLayout title="Home">
@@ -41,7 +62,7 @@ const upcomingEvents = [
     subtitle="Orthodox Christian Parish · Antiochian Archdiocese"
     description="A congregation devoted to mission and evangelism in the heart of Lincoln. We welcome all who seek to discover the ancient faith of Orthodox Christianity."
     primaryCta={{ text: 'Plan Your Visit', href: '/All-Saints/discover/visit' }}
-    secondaryCta={{ text: 'Watch Live', href: 'https://www.youtube.com/@ArchimandritePhilip' }}
+    secondaryCta={{ text: 'Watch Live', href: settings?.youtube || 'https://www.youtube.com/@ArchimandritePhilip' }}
   />
 
   <!-- Service Times & Location Section -->
@@ -56,7 +77,7 @@ const upcomingEvents = [
       </div>
 
       <div class="grid md:grid-cols-2 gap-8">
-        <ServiceTimes />
+        <ServiceTimes services={services} />
         <LocationCard />
       </div>
     </div>
@@ -73,11 +94,15 @@ const upcomingEvents = [
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {upcomingEvents.map((event) => (
-          <EventCard {...event} />
-        ))}
-      </div>
+      {upcomingEvents.length > 0 ? (
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {upcomingEvents.map((event) => (
+            <EventCard {...event} />
+          ))}
+        </div>
+      ) : (
+        <p class="text-center text-slate">No upcoming events at this time.</p>
+      )}
     </div>
   </section>
 
@@ -139,33 +164,28 @@ const upcomingEvents = [
 
       <div class="grid lg:grid-cols-3 gap-8">
         <!-- Featured Newsletter -->
-        <div class="lg:col-span-2 bg-white/5 border border-white/10 rounded-xl p-8">
-          <span class="font-heading text-xs uppercase tracking-widest text-gold mb-3 block">
-            Newsletter · January 2026
-          </span>
-          <h3 class="text-2xl font-heading uppercase tracking-wide mb-4">
-            Fr. Philip's Monthly Letter
-          </h3>
-          <p class="text-white/80 mb-6">
-            As we begin a new year, we give thanks for the growth of our community and look
-            forward to welcoming new catechumens. This month we reflect on the Feast of
-            Theophany and the blessing of waters that sanctifies all creation...
-          </p>
-          <a href="/All-Saints/news" class="btn btn-secondary border-white text-white hover:bg-white/10">
-            Read Full Newsletter
-          </a>
-        </div>
+        {featuredNews && (
+          <div class="lg:col-span-2 bg-white/5 border border-white/10 rounded-xl p-8">
+            <span class="font-heading text-xs uppercase tracking-widest text-gold mb-3 block">
+              {featuredNews.featured ? 'Newsletter' : 'News'} · {featuredNews.date}
+            </span>
+            <h3 class="text-2xl font-heading uppercase tracking-wide mb-4">
+              {featuredNews.title}
+            </h3>
+            <p class="text-white/80 mb-6">
+              {featuredNews.excerpt}
+            </p>
+            <a href="/All-Saints/news" class="btn btn-secondary border-white text-white hover:bg-white/10">
+              Read Full Newsletter
+            </a>
+          </div>
+        )}
 
         <!-- Recent Posts -->
         <div>
           <h4 class="font-heading text-sm uppercase tracking-wide text-gold mb-6">Recent Posts</h4>
           <div class="space-y-4">
-            {[
-              { title: 'Lenten Retreat Announced', date: 'January 10, 2026' },
-              { title: 'New Bible Study Series', date: 'January 5, 2026' },
-              { title: 'Nativity Service Photos', date: 'December 26, 2025' },
-              { title: 'Food Bank Thank You', date: 'December 20, 2025' },
-            ].map((post) => (
+            {recentNews.slice(0, 4).map((post) => (
               <div class="pb-4 border-b border-white/10 last:border-0">
                 <h5 class="font-heading text-sm uppercase tracking-wide mb-1">{post.title}</h5>
                 <span class="text-xs text-white/50">{post.date}</span>

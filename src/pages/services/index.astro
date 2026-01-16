@@ -3,61 +3,33 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import ServiceTimes from '../../components/ServiceTimes.astro';
 import EventCard from '../../components/EventCard.astro';
+import { getCollection } from 'astro:content';
+import { getServices } from '../../lib/content';
 
-const upcomingEvents = [
-  {
-    month: 'January',
-    day: '19',
-    weekday: 'Sunday',
-    title: 'Feast of Theophany',
-    time: 'Divine Liturgy · 10:00 AM',
-    description: 'Special blessing of waters following the Divine Liturgy.',
-    featured: true,
-  },
-  {
-    month: 'January',
-    day: '25',
-    weekday: 'Saturday',
-    title: 'Catechumen Class',
-    time: 'E-Quip Session · 3:00 PM',
-    description: 'Weekly instruction for those exploring the Orthodox faith.',
-  },
-  {
-    month: 'February',
-    day: '02',
-    weekday: 'Sunday',
-    title: 'Presentation of Christ',
-    time: 'Divine Liturgy · 10:00 AM',
-    description: 'Celebration of the Meeting of our Lord in the Temple.',
-    featured: true,
-  },
-  {
-    month: 'February',
-    day: '15',
-    weekday: 'Saturday',
-    title: 'Parish Meeting',
-    time: 'After Liturgy',
-    description: 'Quarterly parish meeting to discuss community matters.',
-  },
-  {
-    month: 'March',
-    day: '03',
-    weekday: 'Monday',
-    title: 'Clean Monday',
-    time: 'Great Lent Begins',
-    description: 'The beginning of the Great Lenten fast.',
-    featured: true,
-  },
-  {
-    month: 'March',
-    day: '25',
-    weekday: 'Tuesday',
-    title: 'Annunciation',
-    time: 'Divine Liturgy · 10:00 AM',
-    description: 'Feast of the Annunciation of the Theotokos.',
-    featured: true,
-  },
-];
+// Get services from YAML
+const services = getServices();
+
+// Get events from content collection, filter for future events
+const now = new Date();
+const eventEntries = await getCollection('events');
+const upcomingEvents = eventEntries
+  .filter(e => e.data.date >= now)
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime())
+  .slice(0, 6)
+  .map(event => {
+    const date = event.data.date;
+    const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    return {
+      month: months[date.getMonth()],
+      day: String(date.getDate()).padStart(2, '0'),
+      weekday: weekdays[date.getDay()],
+      title: event.data.title,
+      time: event.data.time,
+      description: event.data.description,
+      featured: event.data.featured,
+    };
+  });
 ---
 
 <BaseLayout title="Services & Calendar">
@@ -71,7 +43,7 @@ const upcomingEvents = [
       <div class="grid lg:grid-cols-3 gap-12">
         <!-- Service Times -->
         <div class="lg:col-span-1">
-          <ServiceTimes />
+          <ServiceTimes services={services} />
 
           <div class="mt-8 p-6 bg-off-white rounded-xl">
             <h3 class="font-heading text-lg uppercase tracking-wide text-navy mb-4">
@@ -93,11 +65,15 @@ const upcomingEvents = [
         <div class="lg:col-span-2" id="calendar">
           <h2 class="text-3xl text-navy mb-8">Upcoming Events</h2>
 
-          <div class="grid sm:grid-cols-2 gap-6">
-            {upcomingEvents.map((event) => (
-              <EventCard {...event} />
-            ))}
-          </div>
+          {upcomingEvents.length > 0 ? (
+            <div class="grid sm:grid-cols-2 gap-6">
+              {upcomingEvents.map((event) => (
+                <EventCard {...event} />
+              ))}
+            </div>
+          ) : (
+            <p class="text-slate">No upcoming events at this time.</p>
+          )}
 
           <div class="mt-12 p-6 bg-burgundy/10 border border-burgundy/20 rounded-xl">
             <h3 class="font-heading text-lg uppercase tracking-wide text-burgundy mb-2">

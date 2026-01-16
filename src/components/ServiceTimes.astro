@@ -1,11 +1,23 @@
 ---
-const services = [
+interface Service {
+  day: string;
+  time: string;
+  name: string;
+}
+
+interface Props {
+  services?: Service[];
+}
+
+const defaultServices = [
   { day: 'Wednesday', time: '6:00 PM', name: 'Vespers' },
   { day: 'Thursday', time: '11:00 AM', name: 'Moleiben' },
   { day: 'Saturday', time: '8:00 AM', name: 'Divine Liturgy' },
   { day: 'Saturday', time: '5:00 PM', name: 'Vespers' },
   { day: 'Sunday', time: '10:00 AM', name: 'Divine Liturgy' },
 ];
+
+const { services = defaultServices } = Astro.props;
 ---
 
 <div class="bg-navy rounded-xl p-8 text-white">

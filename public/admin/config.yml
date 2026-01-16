@@ -1,0 +1,106 @@
+local_backend: true
+
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/All-Saints/images/uploads"
+
+collections:
+  # News Posts
+  - name: "news"
+    label: "News & Updates"
+    folder: "src/content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Author", name: "author", widget: "string", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # Events
+  - name: "events"
+    label: "Events"
+    folder: "src/content/events"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "End Date", name: "endDate", widget: "datetime", required: false }
+      - { label: "Time", name: "time", widget: "string", hint: "e.g. 'Divine Liturgy - 10:00 AM'" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Feast Day", value: "feast" }
+          - { label: "Class/Study", value: "class" }
+          - { label: "Community", value: "community" }
+          - { label: "Special Service", value: "service" }
+
+  # Clergy
+  - name: "clergy"
+    label: "Clergy"
+    folder: "src/content/clergy"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Name", name: "title", widget: "string" }
+      - { label: "Role", name: "role", widget: "string", hint: "e.g. 'Parish Priest & Protosyngellos'" }
+      - { label: "Photo", name: "photo", widget: "image" }
+      - { label: "Order", name: "order", widget: "number", default: 10, hint: "Display order (lower = first)" }
+      - { label: "Active", name: "active", widget: "boolean", default: true }
+      - { label: "Biography", name: "body", widget: "markdown" }
+
+  # Weekly Services (single file)
+  - name: "services"
+    label: "Weekly Services"
+    files:
+      - label: "Service Schedule"
+        name: "schedule"
+        file: "src/data/services.yml"
+        fields:
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Service Name", name: "name", widget: "string" }
+              - label: "Day"
+                name: "day"
+                widget: "select"
+                options: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+              - { label: "Time", name: "time", widget: "string" }
+              - { label: "Order", name: "order", widget: "number", default: 1 }
+
+  # Site Settings (single file)
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "General Settings"
+        name: "general"
+        file: "src/data/settings.yml"
+        fields:
+          - { label: "Church Name", name: "churchName", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - label: "Address"
+            name: "address"
+            widget: "object"
+            fields:
+              - { label: "Street", name: "street", widget: "string" }
+              - { label: "City", name: "city", widget: "string" }
+              - { label: "Postcode", name: "postcode", widget: "string" }
+          - { label: "YouTube URL", name: "youtube", widget: "string", required: false }
+          - label: "Bank Details"
+            name: "bank"
+            widget: "object"
+            fields:
+              - { label: "Account Name", name: "accountName", widget: "string" }
+              - { label: "Sort Code", name: "sortCode", widget: "string" }
+              - { label: "Account Number", name: "accountNumber", widget: "string" }
