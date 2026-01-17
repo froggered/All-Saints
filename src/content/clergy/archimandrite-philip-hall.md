@@ -1,5 +1,5 @@
 ---
-title: Archimandrite Philip Hall!
+title: Archimandrite Philip Hall
 role: Parish Priest & Protosyngellos
 photo: /All-Saints/images/fr-philip-hall.jpg
 order: 1
